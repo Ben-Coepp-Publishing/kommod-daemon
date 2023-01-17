@@ -15,6 +15,7 @@ public class DoctorController {
     @GetMapping("/all")
     public ResponseEntity<ArrayList<Check>> getAllChecks(){
         ArrayList<Check> checks = new ArrayList<>();
+        checks.add(new Check("Some Title","Some description", "ls -la", true));
         return ResponseEntity.ok(checks);
     }
 }
