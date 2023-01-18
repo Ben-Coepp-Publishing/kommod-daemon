@@ -1,5 +1,6 @@
 title: Base Network Test
+subTitle: A simple base Network Test
 description: This is the best test for all network functionality. It is meant  to be run when ever possible to make sure that the network is in good health
-executor: de.bencoepp.honnet.daemon.test.network.BaseNetowrkTest
+executor: de.bencoepp.honnet.daemon.test.network.BaseNetworkTest
 runtime: 6
 type: system

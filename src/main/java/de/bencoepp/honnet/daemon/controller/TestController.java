@@ -6,6 +6,8 @@ import de.bencoepp.entity.test.Test;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.io.File;
 import java.io.IOException;
@@ -26,5 +28,11 @@ public class TestController {
             tests.add(test);
         }
         return ResponseEntity.ok(tests);
+    }
+
+    @PostMapping("/run")
+    public ResponseEntity<String> runTests(@RequestBody String command){
+        System.out.println(command);
+        return ResponseEntity.ok("");
     }
 }
