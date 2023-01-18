@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +23,7 @@ public class DoctorController {
         checks.add(checkDockerVersion());
         checks.addAll(checkDockerComposeVersion());
         checks.add(checkKubectlVersion());
+        checks.add(checkInternetConnection());
         return ResponseEntity.ok(checks);
     }
 
@@ -76,6 +80,29 @@ public class DoctorController {
         }
         dockerComposeChecks.add(dockerComposeCheck);
         return dockerComposeChecks;
+    }
+
+    private Check checkInternetConnection(){
+        Check checkInternet = new Check();
+        checkInternet.setTitle("Internet Access");
+        checkInternet.setDescription("Checking if the internet is available to use");
+        checkInternet.setCommand("curl https://www.google.com");
+        checkInternet.setOk(netIsAvailable());
+        return checkInternet;
+    }
+
+    private boolean netIsAvailable() {
+        try {
+            final URL url = new URL("https://www.google.com");
+            final URLConnection conn = url.openConnection();
+            conn.connect();
+            conn.getInputStream().close();
+            return true;
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            return false;
+        }
     }
 
 
