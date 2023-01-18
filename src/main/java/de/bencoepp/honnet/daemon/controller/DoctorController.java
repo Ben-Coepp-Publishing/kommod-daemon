@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -46,7 +45,7 @@ public class DoctorController {
         kubectlCheck.setTitle("Kubectl");
         kubectlCheck.setCommand("kubectl version");
         String output = execCmd("kubectl version");
-        kubectlCheck.setDescription(output);
+        kubectlCheck.setDescription(output.replaceAll("\n",""));
         if(output.contains("Client Version:")){
             kubectlCheck.setOk(true);
         }else{

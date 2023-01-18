@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 @Component
 public class Scheduler {
 
-    @Scheduled(fixedRate = 60000)
+    //@Scheduled(fixedRate = 60000)
     public void executeScheduler() throws InterruptedException {
         new Thread(() ->{
             Class<?> clazz = null;
