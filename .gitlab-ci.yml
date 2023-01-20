@@ -5,6 +5,8 @@ stages:
 
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
+  tags:
+    - "vettel"
   script:
     - echo "Compiling the code..."
     - mvn package
@@ -12,13 +14,16 @@ build-job:       # This job runs in the build stage, which runs first.
 
 unit-test-job:
   stage: test
+  tags:
+    - "vettel"
   script:
     - echo "Running unit tests..."
     - mvn test
 
 deploy-github-job:
   stage: deploy
-  environment: production
+  tags:
+    - "vettel"
   script:
     - echo "Deploying application..."
     - git push github
