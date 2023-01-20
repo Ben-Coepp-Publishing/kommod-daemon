@@ -1,4 +1,4 @@
-package de.bencoepp.honnet.daemon.controller;
+package de.bencoepp.kommod.daemon.controller;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

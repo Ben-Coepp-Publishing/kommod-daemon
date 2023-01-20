@@ -1,8 +1,6 @@
-package de.bencoepp.honnet.daemon.scheduler;
+package de.bencoepp.kommod.daemon.scheduler;
 
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

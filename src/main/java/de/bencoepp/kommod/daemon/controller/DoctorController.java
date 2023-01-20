@@ -1,4 +1,4 @@
-package de.bencoepp.honnet.daemon.controller;
+package de.bencoepp.kommod.daemon.controller;
 
 import de.bencoepp.entity.Check;
 import org.springframework.http.ResponseEntity;

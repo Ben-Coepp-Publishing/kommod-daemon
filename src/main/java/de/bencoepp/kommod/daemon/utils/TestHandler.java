@@ -1,4 +1,4 @@
-package de.bencoepp.honnet.daemon.utils;
+package de.bencoepp.kommod.daemon.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
