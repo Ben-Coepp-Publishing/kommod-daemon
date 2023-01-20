@@ -1,0 +1,33 @@
+name: kommod-daemon
+title: kommod-daemon
+version: '1.8.0'
+summary: The daemon behind kommod-cli
+description: |
+  This daemon is responsible for the distribution and the use of data for probatio...
+grade: stable
+confinement: strict
+base: core18
+
+website: https://github.com/Ben-Coepp-Publishing/kommod-daemon
+issues: https://github.com/Ben-Coepp-Publishing/kommod-daemon/issues
+license: MIT
+
+architectures:
+  - build-on: amd64
+
+apps:
+  kommod-daemon:
+    command:
+      java -jar -Duser.home=$SNAP_USER_DATA $SNAP/jar/daemon-0.0.1-SNAPSHOT.jar
+    plugs: [ home, network]
+    daemon: simple
+
+parts:
+  kommod-daemon:
+    source: https://github.com/Ben-Coepp-Publishing/kommod-daemon.git
+    source-tag: main
+    source-type: git
+    plugin: maven
+    stage:
+      - -usr/lib/jvm/java-11-openjdk-amd64/lib/security/blacklisted.certs
+      - -etc/java-11-openjdk/security/blacklisted.certs lint-snap-v2_external_symlinks
