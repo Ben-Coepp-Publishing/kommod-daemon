@@ -1,6 +1,7 @@
 package de.bencoepp.kommod.daemon.scheduler;
 
 import org.springframework.stereotype.Component;
+import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -9,8 +10,8 @@ import java.lang.reflect.Method;
 public class Scheduler {
 
     //@Scheduled(fixedRate = 60000)
-    public void executeScheduler() throws InterruptedException {
-        new Thread(() ->{
+    public void executeScheduler() throws InterruptedException, IOException {
+        new Thread(() -> {
             Class<?> clazz = null;
             try {
                 clazz = Class.forName("");
@@ -40,6 +41,8 @@ public class Scheduler {
             } catch (Exception e) {
                 System.out.println(e);
             }
-        }){{start();}}.join();
+        }) {{
+            start();
+        }}.join();
     }
 }
