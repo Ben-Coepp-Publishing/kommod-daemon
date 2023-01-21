@@ -2,7 +2,7 @@ title: Base Network Test
 path: base_network.yaml
 subTitle: A simple base Network Test
 description: This is the best test for all network functionality. It is meant  to be run when ever possible to make sure that the network is in good health
-executor: de.bencoepp.honnet.daemon.test.network.BaseNetworkTest
+executor: de.bencoepp.kommod.daemon.test.network.BaseNetworkTest
 runtime: 6
 type: system
 depth: 1

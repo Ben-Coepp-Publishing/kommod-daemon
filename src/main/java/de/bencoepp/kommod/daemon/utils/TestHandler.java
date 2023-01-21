@@ -21,4 +21,10 @@ public class TestHandler {
         }
         return tests;
     }
+
+    public static Test getTest(String path) throws IOException {
+        File file = new File("tests/" + path);
+        ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
+        return mapper.readValue(file, Test.class);
+    }
 }
