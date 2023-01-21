@@ -5,6 +5,8 @@ import de.bencoepp.entity.test.Test;
 import de.bencoepp.kommod.daemon.entity.ScheduledTest;
 import de.bencoepp.kommod.daemon.repository.ScheduledTestRepository;
 
+import java.io.IOException;
+
 public class TestExecutor {
 
     public Test test;
