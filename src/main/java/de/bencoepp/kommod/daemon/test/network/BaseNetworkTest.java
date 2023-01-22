@@ -36,6 +36,7 @@ public class BaseNetworkTest extends TestExecutor {
         try {
             stages.add(checkNetworkConnection());
             stages.add(checkNetworkSpeed());
+            stages.add(checkNetworkConnections());
         }catch (Exception e){
             System.out.println(e);
         }
@@ -43,6 +44,12 @@ public class BaseNetworkTest extends TestExecutor {
 
         report.setStages(stages);
         report.setEnd(new Timestamp(System.currentTimeMillis()).toString());
+        report.setOk(true);
+        for (Stage stage : report.getStages()) {
+            if(stage.getOk() == false){
+                report.setOk(false);
+            }
+        }
 
         System.out.println(report.toString());
     }
@@ -120,12 +127,12 @@ public class BaseNetworkTest extends TestExecutor {
         stepUpload.setOk(true);
         //TODO add upload speed check
         steps.add(stepUpload);
-
+        stage.setSteps(steps);
         stage.setOk(true);
         return stage;
     }
 
-    private Stage checkNetworkConnections(){
+    private Stage checkNetworkConnections() throws UnknownHostException {
         Stage stage = new Stage();
         stage.setTitle("Network Connections");
         stage.setDescription("Check different connection types on the local system");
@@ -145,12 +152,16 @@ public class BaseNetworkTest extends TestExecutor {
         }
         steps.add(stepIP4);
 
-        Step stepIP6 = new Step();
-        stepIP6.setTitle("Ip6 Address");
-        //TODO create IP6 test
-
-
         stage.setSteps(steps);
         return stage;
+    }
+
+    private Inet6Address getIPv6Addresses(InetAddress[] addresses) {
+        for (InetAddress addr : addresses) {
+            if (addr instanceof Inet6Address) {
+                return (Inet6Address) addr;
+            }
+        }
+        return null;
     }
 }

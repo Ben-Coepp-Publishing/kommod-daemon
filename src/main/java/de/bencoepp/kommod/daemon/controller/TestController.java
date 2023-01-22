@@ -33,7 +33,7 @@ public class TestController {
     }
 
     @PostMapping("/run")
-    public ResponseEntity<String> runTests(@RequestBody String command) throws IOException {
+    public ResponseEntity<List<ScheduledTest>> runTests(@RequestBody String command) throws IOException {
         ArrayList<Test> tests = TestHandler.getAllTests();
         JSONObject object = new JSONObject(command);
         if(object.getInt("depth") == 4){
@@ -54,14 +54,18 @@ public class TestController {
                 }
             }
         }
-        List<Report> reports = new ArrayList<>();
+
+        List<ScheduledTest> scheduledTests = new ArrayList<>();
         for (Test test : tests) {
             ScheduledTest scheduledTest = new ScheduledTest();
             scheduledTest.setStatus(ScheduledTest.STATUS_SCHEDULED);
             scheduledTest.setPath(test.getPath());
-            scheduledTestRepository.save(scheduledTest);
 
+            scheduledTest = scheduledTestRepository.save(scheduledTest);
+            scheduledTest.setReport("report_" + scheduledTest.getId());
+            scheduledTestRepository.save(scheduledTest);
+            scheduledTests.add(scheduledTest);
         }
-        return ResponseEntity.ok("");
+        return ResponseEntity.ok(scheduledTests);
     }
 }
