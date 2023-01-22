@@ -1,0 +1,104 @@
+:root{
+    --color-primary: #40DF9F;
+    --color-secondary: #1F2E35;
+    --color-accent: #FF8A34;
+    --color-warning: #FF464F;
+    --font-color: #ffffff;
+    --color-cardbg: #2A3C44;
+    --font-family: 'Special Elite', cursive;
+}
+
+h1,h2,h3,h4,h5,h6,p,span{
+    color: var(--font-color);
+}
+
+a{
+    color: var(--font-color);
+    text-decoration: none !important;
+}
+
+a:hover{
+    color: var(--color-primary);
+}
+ul {
+    list-style-type: none;
+}
+
+li{
+    color: var(--font-color);
+}
+
+body{
+    background-color: var(--color-secondary);
+}
+
+.card{
+    background-color: var(--color-cardbg);
+}
+
+.card-text{
+    color: var(--font-color);
+}
+
+.card-title{
+    color: var(--font-color);
+}
+
+.input-group-prepend{
+    background-color: var(--color-cardbg);
+    border-radius: 0.375rem;
+}
+.input-group-text{
+    background-color: var(--color-cardbg);
+    color: var(--font-color);
+    border: none;
+}
+
+.form-control{
+    color: var(--color-primary);
+    background-color: var(--color-cardbg);
+    border: none;
+}
+
+.input-group .bootstrap-select.form-control .dropdown-toggle {
+    border-radius: inherit;
+    border: none;
+    background-color: var(--color-cardbg);
+    color: var(--color-primary);
+}
+
+.filterBtn{
+    background-color: #40DF9F;
+    color: #1F2E35;
+    border: none;
+}
+
+.navbar-dark .navbar-toggler{
+    color: transparent;
+    border-color: transparent;
+}
+.navbar-toggler:active, .navbar-toggler:active{
+    border-color: transparent;
+}
+.breadcrumb .breadcrumb-item .a{
+    color: var(--color-secondary) !important;
+}
+
+.breadcrumb .breadcrumb-item .a:hover{
+    color: var(--color-primary) !important;
+}
+
+.breadcrumb{
+    background-color: var(--color-cardbg);
+}
+
+.custom-select{
+    background-color: var(--color-cardbg);
+    border: none;
+    color: var(--color-primary);
+}
+
+.btn-primary{
+    background-color: var(--color-primary);
+    border: none;
+}

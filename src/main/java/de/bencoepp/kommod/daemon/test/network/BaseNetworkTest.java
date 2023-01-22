@@ -24,8 +24,6 @@ import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
 public class BaseNetworkTest extends TestExecutor {
 
     public BaseNetworkTest(Test test, ScheduledTestRepository scheduledTestRepository, ScheduledTest scheduledTest) {
@@ -34,6 +32,8 @@ public class BaseNetworkTest extends TestExecutor {
 
     @Override
     public void execute() {
+        scheduledTest.setStatus(ScheduledTest.STATUS_RUNNING);
+        scheduledTestRepository.save(scheduledTest);
         Report report = new Report();
         report.setTest(test);
         report.setTitle("Base Network Report");
@@ -72,6 +72,8 @@ public class BaseNetworkTest extends TestExecutor {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+        scheduledTest.setStatus(ScheduledTest.STATUS_FINISHED);
+        scheduledTestRepository.save(scheduledTest);
     }
 
     private Stage checkNetworkConnection(){
@@ -175,14 +177,5 @@ public class BaseNetworkTest extends TestExecutor {
         stage.setOk(true);
         stage.setSteps(steps);
         return stage;
-    }
-
-    private Inet6Address getIPv6Addresses(InetAddress[] addresses) {
-        for (InetAddress addr : addresses) {
-            if (addr instanceof Inet6Address) {
-                return (Inet6Address) addr;
-            }
-        }
-        return null;
     }
 }
