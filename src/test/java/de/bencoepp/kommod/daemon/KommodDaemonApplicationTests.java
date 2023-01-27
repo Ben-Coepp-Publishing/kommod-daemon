@@ -1,4 +1,4 @@
-package de.bencoepp.honnet.daemon;
+package de.bencoepp.kommod.daemon;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
