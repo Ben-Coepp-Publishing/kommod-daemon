@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.exc.StreamWriteException;
 import com.fasterxml.jackson.databind.DatabindException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
-import com.fasterxml.jackson.dataformat.yaml.YAMLGenerator;
 import de.bencoepp.entity.test.Report;
 import de.bencoepp.entity.test.Stage;
 import de.bencoepp.entity.test.Step;
@@ -12,8 +11,6 @@ import de.bencoepp.entity.test.Test;
 import de.bencoepp.kommod.daemon.entity.ScheduledTest;
 import de.bencoepp.kommod.daemon.repository.ScheduledTestRepository;
 import de.bencoepp.kommod.daemon.test.TestExecutor;
-import org.apache.logging.log4j.core.time.Instant;
-
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;

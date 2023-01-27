@@ -1,0 +1,8 @@
+title: Language Framework Test
+path: language_framework.yaml
+subTitle: Overall language and framework test
+description: This test tests for a variety of different languages and frameworks installed on the system and give a quick overview of the versions as well as the type of framework or language installed.
+executor: de.bencoepp.kommod.daemon.test.system.LanguageFrameworkTest
+runtime: 6
+type: system
+depth: 2
