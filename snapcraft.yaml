@@ -18,7 +18,7 @@ architectures:
 apps:
   kommod-daemon:
     command:
-      java -jar -Duser.home=$SNAP_USER_DATA $SNAP/jar/kommod-daemon-0.0.1-SNAPSHOT.jar
+      java -jar -Duser.home=$SNAP_USER_DATA $SNAP/jar/daemon-0.0.1-SNAPSHOT.jar
     plugs: [ home, network]
     daemon: simple
 
