@@ -26,7 +26,12 @@ public class ReportHelper {
     public static List<Report> getAllReports() throws IOException {
         ArrayList<Report> reports = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        List<File> files = List.of(new File("/report").listFiles());
+        List<File> files = new ArrayList<>();
+        try{
+            files = List.of(new File("/report").listFiles());
+        }catch (NullPointerException e){
+            System.out.println(e);
+        }
         for (File file : files) {
             reports.add(mapper.readValue(file, Report.class));
         }
