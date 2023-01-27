@@ -18,7 +18,7 @@ architectures:
 apps:
   kommod-daemon:
     command:
-      java -jar -Duser.home=$SNAP_USER_DATA $SNAP/jar/daemon-0.0.1-SNAPSHOT.jar
+      java -jar -Duser.home=$SNAP_USER_DATA $SNAP/jar/kommod-daemon-0.0.1-SNAPSHOT.jar
     plugs: [ home, network]
     daemon: simple
 
@@ -28,6 +28,18 @@ parts:
     source-tag: main
     source-type: git
     plugin: maven
+    stage:
+      - -usr/lib/jvm/java-11-openjdk-amd64/lib/security/blacklisted.certs
+      - -etc/java-11-openjdk/security/blacklisted.certs lint-snap-v2_external_symlinks
+    after:
+      - kommod-commons
+
+  kommod-commons:
+    source: https://github.com/Ben-Coepp-Publishing/kommod-commons.git
+    source-tag: main
+    source-type: git
+    plugin: maven
+    maven-options: [install]
     stage:
       - -usr/lib/jvm/java-11-openjdk-amd64/lib/security/blacklisted.certs
       - -etc/java-11-openjdk/security/blacklisted.certs lint-snap-v2_external_symlinks
