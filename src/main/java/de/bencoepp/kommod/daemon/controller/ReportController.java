@@ -8,16 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 public class ReportController {
 
-    @Autowired
-    private ScheduledTestRepository scheduledTestRepository;
+    ScheduledTestRepository scheduledTestRepository;
 
 
     @GetMapping("/report/all")

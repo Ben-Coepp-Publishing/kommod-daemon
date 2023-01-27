@@ -1,7 +1,6 @@
 package de.bencoepp.kommod.daemon.entity;
 
-
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 public class ScheduledTest {
