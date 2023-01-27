@@ -1,6 +1,6 @@
 name: kommod-daemon
 title: kommod-daemon
-version: '1.8.0'
+version: '0.0.1'
 summary: The daemon behind kommod-cli
 description: |
   This daemon is responsible for the distribution and the use of data for probatio...
