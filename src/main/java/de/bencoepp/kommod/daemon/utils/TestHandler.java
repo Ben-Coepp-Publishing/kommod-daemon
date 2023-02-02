@@ -24,7 +24,7 @@ public class TestHandler {
     public static ArrayList<Test> getAllTests() throws IOException {
         ArrayList<Test> tests = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory());
-        File dir = new File("tests");
+        File dir = new File("tests"); //TODO here needs to be the correct way to grap them from the resource dir
         File[] files = dir.listFiles();
         for (File file : files){
             Test test = mapper.readValue(new File(file.getCanonicalPath()), Test.class);
