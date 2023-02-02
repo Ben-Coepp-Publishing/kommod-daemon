@@ -2,39 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{components/head::head}">
 <body>
-<div class="container">
-    <div class="row">
-        <h1>The Nav goes here</h1>
-    </div>
-    <div class="row">
-        <div class="col-md-4">
-            <h1>Test run Pie Chart</h1>
-        </div>
-        <div class="col-md-8">
-            <h1>Time Data of Tests</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div id="accordion">
-                <div class="card" th:each="report : ${reports}">
-                    <div class="card-header" th:id="@{heading{id}(id=${report.id})}" data-toggle="collapse" th:data-target="@{#collapse{id}(id=${report.id})}" aria-expanded="false" th:aria-controls="@{#collapse{id}(id=${report.id})}">
-                        <h5 class="mb-0">
-                            <button class="btn" style="width: 100%">
-                                <h6 style="display: inline-block;float: left;" th:text="${report.title}"></h6>
-                                <span style="float: right" th:text="${report.id}"></span>
-                            </button>
-                        </h5>
-                    </div>
-                    <div th:id="@{collapse{id}(id=${report.id})}" class="collapse" th:aria-labelledby="@{heading{id}(id=${report.id})}" data-parent="#accordion">
-                        <div class="card-body">
-                            <h1>some content</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<h1>test</h1>
 </div>
 </body>
 </html>
