@@ -19,7 +19,7 @@ apps:
   kommod-daemon:
     command:
       java -jar -Duser.home=$SNAP_USER_DATA $SNAP/jar/daemon-0.0.1-SNAPSHOT.jar
-    plugs: [ home, network, network-bind, personal-files, system-files]
+    plugs: [ home, network, network-bind, content, docker]
     daemon: simple
 
 parts:
